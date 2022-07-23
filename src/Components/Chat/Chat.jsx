@@ -3,7 +3,8 @@ import React from 'react';
 const Chat = () => {
     return (
         <div>
-            Chat
+
+            <h1>ПРИВЕТ ЕБЛАН</h1>
         </div>
     );
 };
