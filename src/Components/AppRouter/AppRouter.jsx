@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { Context } from "../..";
 import { privateRoutes, publicRoutes } from "../../routes";
 import { CHAT_ROUTE, LOGIN_ROUTE } from "../../utils/consts";
+import {useAuthState} from 'react-firebase-hooks/auth'
 
 const AppRouter = () => {
-  const user = false;
+
+  const {auth} = useContext(Context);
+  const [user, loading, error] = useAuthState(auth);
+  console.log("🚀 ~ file: AppRouter.jsx ~ line 12 ~ AppRouter ~ user", user)
+
+  
+
   return user ? (
     <Routes>
       {privateRoutes.map(({ path, Component }) => (
