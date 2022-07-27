@@ -47,7 +47,7 @@ const Chat = () => {
                             margin: 10, 
                             border: user.uid === message.uid ? '2px solid green' : '2px dashed red',
                             marginLeft: user.uid === message.uid ? 'auto': '10px',
-                            wigth: 'fit-content',
+                            width: 'fit-content',
                             padding: 5
                         }}>
                             <Grid>
