@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Toolbar, AppBar,Button,Grid } from "@mui/material";
-import styles from './Navbar.module.css'
 import { NavLink } from "react-router-dom";
 import {LOGIN_ROUTE} from '../../utils/consts'
 import { useAuthState } from "react-firebase-hooks/auth";

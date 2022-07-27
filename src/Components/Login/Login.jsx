@@ -1,8 +1,7 @@
 import { Container, Grid, Box, Button } from "@mui/material";
 import { React, useContext } from "react";
-import styles from './Login.module.css';
 import { Context } from "../../";
-
+import styles from './Login.module.css';
 import firebase from 'firebase/compat/app';
 
 
@@ -18,7 +17,7 @@ const Login = () => {
         <Container>
             <Grid className={styles.login}
                 container
-                style={{ height: window.innerHeight - 50 }}
+                style={{ height: window.innerHeight - 50,}}
             >
                 <Grid style={{ width: 400, background: 'lightgray' }} container
                     direction="row"

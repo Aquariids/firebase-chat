@@ -9,7 +9,6 @@ const AppRouter = () => {
 
   const {auth} = useContext(Context);
   const [user, loading, error] = useAuthState(auth);
-  console.log("🚀 ~ file: AppRouter.jsx ~ line 12 ~ AppRouter ~ user", user)
 
   
 

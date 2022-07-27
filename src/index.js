@@ -23,6 +23,8 @@ export const Context = createContext(null);
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
+console.log("🚀 ~ file: index.js ~ line 26 ~ firestore", firestore)
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
