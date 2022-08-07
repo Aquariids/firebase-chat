@@ -1,26 +1,14 @@
 import React from 'react';
-import { Container, Grid, Box, Button } from "@mui/material";
+import styles from './Loader.module.css'
 
 const Loader = () => {
     return (
-        <Container>
-            <Grid
-                container
-                style={{ height: window.innerHeight - 50 }}
-            >
-
-                <Grid container
-                    direction="row"
-                    justifyContent="center"
-                    alignItems={'center'}
-                >
-                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-
-                </Grid>
-
-
-            </Grid>
-        </Container>
+        <div
+            style={{ height: window.innerHeight - 50 }} className={styles.loader}>
+            <div>
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </div>
     );
 };
 

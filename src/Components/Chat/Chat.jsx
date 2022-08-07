@@ -5,9 +5,10 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { Context } from '../..';
 import Loader from '../Loader/Loader';
 import firebase from 'firebase/compat/app';
-
+import styles from './Chat.module.css'
+import cn from 'classnames';
+import MyInput from '../UI/MyInput/MyInput';
 const Chat = () => {
-
 
     const { auth, firestore } = useContext(Context);
     const [user] = useAuthState(auth);
@@ -31,51 +32,48 @@ const Chat = () => {
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
-
         setValue('')
     }
+
+
     return (
-        <Container>
-            <Grid
-                container
-                justifyContent="center"
-                style={{ height: window.innerHeight - 50, }}
-            >
-                <div style={{ width: '80%', height: '70vh', border: '1px solid black', overflowY: 'auto', marginTop: 20 }}>
+        <div>
+            <div className={styles.container}>
+                <div className={cn(styles.display, {})}>
                     {messages.map(message => {
                         return <div style={{
-                            margin: 10, 
+                            margin: 10,
                             border: user.uid === message.uid ? '2px solid green' : '2px dashed red',
-                            marginLeft: user.uid === message.uid ? 'auto': '10px',
+                            marginLeft: user.uid === message.uid ? 'auto' : '10px',
                             width: 'fit-content',
                             padding: 5
                         }}>
-                            <Grid>
+                            <div>
                                 <Avatar src={message.photoURL} />
                                 <div>{message.displayName}</div>
-                            </Grid>
+                            </div>
                             <div>
                                 {message.text}
                             </div>
                         </div>
                     })}
                 </div>
-                <Grid
+                <div
                     container
                     direction={"column"}
                     alignItems={'flex-end'}
                     style={{ width: '80%' }}
                 >
-                    <TextField
+                    <MyInput
+                        onKeyDown={e => e.key === 'Enter' ? sendMessage() : ''}
                         value={value}
-                        onChange={e => setValue(e.target.value)}
-                        fullWidth
-                        variant={'outlined'} />
+                        onChange={(e) => { setValue(e.target.value) }}
+                    />
                     <Button onClick={sendMessage} variant={'outlined'}> Отправить </Button>
-                </Grid>
+                </div>
 
-            </Grid>
-        </Container>
+            </div>
+        </div>
     );
 };
 

@@ -1,28 +1,30 @@
 import React, { useContext } from "react";
-import { Toolbar, AppBar,Button,Grid } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import {LOGIN_ROUTE} from '../../utils/consts'
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Context } from "../../index";
+
+import styles from './Navbar.module.css'
+import MyButton from "../UI/MyButton/MyButton";
 const Navbar = () => {
 
 
     const {auth} = useContext(Context);
     const [user] = useAuthState(auth);
     return (
-        <AppBar position="static">
-            <Toolbar variant="dense">
-                <Grid container direction="row" justifyContent="flex-end">
+        <header>
+            <div className={styles.nav}>
+                <div className={styles.content}>
                     {user ? 
-                    <Button onClick={() => auth.signOut()} variant="contained">Выйти</Button>
+                    <MyButton onClick={() => auth.signOut()} variant="contained">Выйти</MyButton>
                     :
                     <NavLink to={LOGIN_ROUTE}>
-                    <Button variant="contained">Логин</Button>
+                    <MyButton>Логин</MyButton>
                     </NavLink>
                     }
-                </Grid>
-            </Toolbar>
-        </AppBar>
+                </div>
+            </div>
+        </header>
     );
 };
 

@@ -3,6 +3,7 @@ import { React, useContext } from "react";
 import { Context } from "../../";
 import styles from './Login.module.css';
 import firebase from 'firebase/compat/app';
+import MyButton from "../UI/MyButton/MyButton";
 
 
 const Login = () => {
@@ -14,21 +15,11 @@ const Login = () => {
 
     }
     return (
-        <Container>
-            <Grid className={styles.login}
-                container
-                style={{ height: window.innerHeight - 50,}}
-            >
-                <Grid style={{ width: 400, background: 'lightgray' }} container
-                    direction="row"
-                    justifyContent="center"  >
-
-                    <Box p={5}>
-                        <Button onClick={login} variant="outlined"> Войти с помощью Google</Button>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Container>
+        <div className={styles.login} style={{ height: window.innerHeight - 50, }}>
+            <div className={styles.googleform}>
+                <MyButton onClick={login} variant="outlined"> Войти с помощью Google</MyButton>
+            </div>
+        </div>
     );
 };
 

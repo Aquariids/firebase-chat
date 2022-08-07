@@ -1,0 +1,22 @@
+.display {
+    width: 80%;
+    height: 70vh;
+    border: 1px solid black;
+    overflow-y: auto;
+    margin: 20px;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.avatar {
+    width: 50%;
+    border-radius: 50%;
+
+}

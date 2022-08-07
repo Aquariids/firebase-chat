@@ -1,0 +1,10 @@
+.nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: slateblue;
+}
+
+.content {
+    padding: 10px;
+}
