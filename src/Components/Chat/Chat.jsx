@@ -10,6 +10,8 @@ import cn from 'classnames';
 import MyInput from '../UI/MyInput/MyInput';
 const Chat = () => {
 
+
+    
     const { auth, firestore } = useContext(Context);
     const [user] = useAuthState(auth);
     const [value, setValue] = useState('');
@@ -67,7 +69,7 @@ const Chat = () => {
                     <MyInput
                         onKeyDown={e => e.key === 'Enter' ? sendMessage() : ''}
                         value={value}
-                        onChange={(e) => { setValue(e.target.value) }}
+                        onChange={(e) => {setValue(e.target.value) }}
                     />
                     <Button onClick={sendMessage} variant={'outlined'}> Отправить </Button>
                 </div>

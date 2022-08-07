@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './MyInput.module.css'
-const MyInput = () => {
+const MyInput = ({...props}) => {
     return (
         <>
-
-            <textarea
+            <input {...props} type= 'text'
                 rows={1}
                 placeholder='Введите текст'
                 className={styles.input} />
